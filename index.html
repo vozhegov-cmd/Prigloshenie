@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Приглашение на свадьбу</title>
-    <!-- Красивые романтичные шрифты -->
+    <!-- Романтичные шрифты с Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Great+Vibes&display=swap" rel="stylesheet">
@@ -19,7 +19,6 @@
             padding: 20px;
             font-family: 'Cormorant Garamond', serif;
             color: #5a3e47;
-            /* Нежный розовый градиент вместо леопарда */
             background: linear-gradient(135deg, #fff5f7 0%, #fbe8ec 50%, #f7d6e0 100%);
             display: flex;
             justify-content: center;
@@ -27,55 +26,28 @@
             min-height: 100vh;
         }
 
-        /* Карточка с кружевом по всему периметру */
+        /* Карточка с ажурным кружевом по периметру */
         .card {
             background-color: #ffffff;
             max-width: 550px;
             width: 100%;
             padding: 45px 30px;
-            border-radius: 24px;
-            box-shadow: 0 12px 35px rgba(216, 107, 139, 0.15);
+            border-radius: 28px;
             text-align: center;
             position: relative;
             
-            /* Ажурная кружевная рамка */
-            border: 18px solid transparent;
-            border-image: repeating-radial-gradient(circle at 10px 10px, #ffffff, #ffffff 6px, #fbcfe8 7px, #ffffff 9px) 18;
-            outline: 2px dashed #f472b6;
-            outline-offset: -12px;
+            /* Выраженная кружевная фестончатая рамка по всем краям */
+            border: 22px solid transparent;
+            border-image: repeating-radial-gradient(circle at 11px 11px, #ffffff, #ffffff 7px, #fbcfe8 8px, #ffffff 11px) 22;
+            box-shadow: 0 0 0 3px #ffffff, 0 0 0 6px #fbcfe8, 0 10px 30px rgba(0,0,0,0.08);
         }
-
-        /* Розовые атласные бантики */
-        .bow {
-            width: 50px;
-            height: 25px;
-            background: #f472b6;
-            border-radius: 50%;
-            display: inline-block;
-            position: absolute;
-            box-shadow: 0 2px 6px rgba(244, 114, 182, 0.3);
-        }
-        .bow::before, .bow::after {
-            content: '';
-            position: absolute;
-            top: 5px;
-            width: 25px;
-            height: 20px;
-            background: #f472b6;
-            border-radius: 50%;
-        }
-        .bow::before { left: -15px; }
-        .bow::after { right: -15px; }
-
-        .bow-top-left { top: -12px; left: 25px; transform: rotate(-15deg); }
-        .bow-top-right { top: -12px; right: 25px; transform: rotate(15deg); }
 
         /* Изящный рукописный заголовок */
         h1 {
             font-family: 'Great Vibes', cursive;
             color: #db2777;
-            font-size: 3.2em;
-            margin-top: 10px;
+            font-size: 3.5em;
+            margin-top: 5px;
             margin-bottom: 10px;
             font-weight: normal;
         }
@@ -83,7 +55,7 @@
         h2 {
             font-family: 'Great Vibes', cursive;
             color: #db2777;
-            font-size: 2.5em;
+            font-size: 2.6em;
             margin-top: 0;
             font-weight: normal;
         }
@@ -108,7 +80,7 @@
             color: #db2777;
         }
 
-        /* Розовая кнопка */
+        /* Кнопка */
         .btn {
             background: linear-gradient(135deg, #f472b6, #db2777);
             color: white;
@@ -198,17 +170,13 @@
 <body>
 
     <div class="card">
-        <!-- Розовые атласные бантики -->
-        <div class="bow bow-top-left"></div>
-        <div class="bow bow-top-right"></div>
-
         <!-- Шаг 1: Просмотр приглашения -->
         <div id="invitation-text">
             <h1>Приглашение на Свадьбу</h1>
             <p>Дорогие и любимые! Мы будем бесконечно счастливы разделить с вами этот особенный день!</p>
             
             <div class="event-details">
-                <p>📅 <span class="highlight">Дата:</span> 29 января 2027 года</p>
+                <p>📅 <span class="highlight">Дата:</span> 29 января</p>
                 <p>💍 <span class="highlight">15:00</span> — Торжественная регистрация в ЗАГСе<br>
                 <i>(ул. Владимирская, д. 23)</i></p>
                 <p>🎉 <span class="highlight">17:00</span> — Праздничный банкет в ресторане "Апельсинка"<br>
@@ -282,4 +250,3 @@
 
 </body>
 </html>
-
