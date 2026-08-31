@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Приглашение на свадьбу</title>
-    <!-- Романтичные шрифты с Google Fonts -->
+    <!-- Романтичные шрифты -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Great+Vibes&display=swap" rel="stylesheet">
@@ -19,16 +19,24 @@
             padding: 20px;
             font-family: 'Cormorant Garamond', serif;
             color: #5a3e47;
-            background: linear-gradient(135deg, #fff5f7 0%, #fbe8ec 50%, #f7d6e0 100%);
+            /* Кружевной текстурный фон страницы */
+            background-color: #fce7f0;
+            background-image: radial-gradient(#ffffff 15%, transparent 16%), radial-gradient(#ffffff 15%, transparent 16%), radial-gradient(rgba(255, 255, 255, 0.6) 20%, transparent 20%);
+            background-size: 60px 60px;
+            background-position: 0 0, 30px 30px, 15px 15px;
             display: flex;
             justify-content: center;
             align-items: center;
             min-height: 100vh;
         }
 
-        /* Карточка с ажурным кружевом по периметру */
+        /* Карточка с кружевной текстурой и рамкой */
         .card {
             background-color: #ffffff;
+            background-image: 
+                radial-gradient(circle at 50% 50%, rgba(253, 242, 248, 0.8), rgba(255, 255, 255, 0.95)),
+                repeating-linear-gradient(45deg, rgba(244, 114, 182, 0.05) 0, rgba(244, 114, 182, 0.05) 10px, transparent 0, transparent 20px),
+                repeating-linear-gradient(-45deg, rgba(244, 114, 182, 0.05) 0, rgba(244, 114, 182, 0.05) 10px, transparent 0, transparent 20px);
             max-width: 550px;
             width: 100%;
             padding: 45px 30px;
@@ -36,13 +44,12 @@
             text-align: center;
             position: relative;
             
-            /* Выраженная кружевная фестончатая рамка по всем краям */
-            border: 22px solid transparent;
-            border-image: repeating-radial-gradient(circle at 11px 11px, #ffffff, #ffffff 7px, #fbcfe8 8px, #ffffff 11px) 22;
-            box-shadow: 0 0 0 3px #ffffff, 0 0 0 6px #fbcfe8, 0 10px 30px rgba(0,0,0,0.08);
+            /* Ажурная кружевная рамка по периметру */
+            border: 16px solid transparent;
+            border-image: repeating-radial-gradient(circle at 8px 8px, #ffffff, #ffffff 5px, #fbcfe8 6px, #ffffff 8px) 16;
+            box-shadow: 0 0 0 3px #ffffff, 0 0 0 6px #f472b6, 0 15px 35px rgba(219, 39, 119, 0.15);
         }
 
-        /* Изящный рукописный заголовок */
         h1 {
             font-family: 'Great Vibes', cursive;
             color: #db2777;
@@ -50,6 +57,7 @@
             margin-top: 5px;
             margin-bottom: 10px;
             font-weight: normal;
+            text-shadow: 1px 1px 0px rgba(255, 255, 255, 0.8);
         }
 
         h2 {
@@ -69,10 +77,11 @@
             margin: 25px 0;
             line-height: 1.8;
             font-size: 1.2em;
-            background: #fff0f4;
+            background: rgba(255, 240, 244, 0.85);
             padding: 22px;
             border-radius: 16px;
-            border: 1px solid #fbcfe8;
+            border: 1px dashed #fbcfe8;
+            backdrop-filter: blur(2px);
         }
 
         .highlight {
@@ -80,7 +89,6 @@
             color: #db2777;
         }
 
-        /* Кнопка */
         .btn {
             background: linear-gradient(135deg, #f472b6, #db2777);
             color: white;
@@ -101,7 +109,6 @@
             background: linear-gradient(135deg, #db2777, #be185d);
         }
 
-        /* Форма подтверждения */
         #rsvp-section {
             display: none;
             margin-top: 30px;
@@ -170,7 +177,6 @@
 <body>
 
     <div class="card">
-        <!-- Шаг 1: Просмотр приглашения -->
         <div id="invitation-text">
             <h1>Приглашение на Свадьбу</h1>
             <p>Дорогие и любимые! Мы будем бесконечно счастливы разделить с вами этот особенный день!</p>
@@ -186,7 +192,6 @@
             <button class="btn" type="button" onclick="showRSVP()">Подтвердить присутствие</button>
         </div>
 
-        <!-- Шаг 2: Ввод имени и ответа -->
         <div id="rsvp-section">
             <h2>Ваш ответ</h2>
             <form id="rsvp-form" action="https://formspree.io/f/xeaqegav" method="POST" onsubmit="submitForm(event)">
