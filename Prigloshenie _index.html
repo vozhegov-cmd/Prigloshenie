@@ -4,173 +4,163 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Приглашение на свадьбу</title>
-    <!-- Элегантные свадебные шрифты -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
     
     <style>
         * {
             box-sizing: border-box;
+            margin: 0;
+            padding: 0;
         }
 
         body {
-            margin: 0;
-            padding: 30px 15px;
-            font-family: 'Cormorant Garamond', serif;
-            color: #4a403a;
-            /* Теплый, спокойный благородный фон */
-            background-color: #f7f4f0;
-            /* Легкий едва заметный кружевной микроузор */
-            background-image: 
-                radial-gradient(rgba(215, 204, 196, 0.4) 1px, transparent 0),
-                radial-gradient(rgba(215, 204, 196, 0.4) 1px, #f7f4f0 0);
-            background-size: 24px 24px;
-            background-position: 0 0, 12px 12px;
+            font-family: 'Montserrat', sans-serif;
+            color: #4a2e1b;
+            background-color: #d8cebe;
             display: flex;
             justify-content: center;
             align-items: center;
             min-height: 100vh;
+            padding: 10px;
         }
 
-        /* Главная карточка */
+        /* Карточка использует вашу сохраненную картинку invitation_bg.jpg как фон */
         .card {
-            background: #ffffff;
-            max-width: 540px;
+            background: url('invitation_bg.jpg') no-repeat center top / cover;
+            max-width: 450px;
             width: 100%;
-            padding: 55px 40px;
-            border-radius: 20px;
+            min-height: 820px;
+            padding: 35px 20px 25px;
+            border-radius: 16px;
             text-align: center;
             position: relative;
-            box-shadow: 0 10px 40px rgba(74, 64, 58, 0.06);
-
-            /* Кружевная ажурная рамка по бокам и периметру */
-            border: 20px solid transparent;
-            border-image: repeating-radial-gradient(circle at 10px 10px, #ffffff, #ffffff 6px, #e8dfd8 7px, #ffffff 9px) 20;
-            outline: 1px solid rgba(215, 204, 196, 0.5);
-            outline-offset: -10px;
+            box-shadow: 0 10px 35px rgba(0, 0, 0, 0.15);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
 
-        /* Заголовки */
-        h1 {
+        /* Верхняя часть — полностью прозрачная */
+        .header-section {
+            background: transparent;
+            padding-top: 10px;
+        }
+
+        .title-wedding {
             font-family: 'Alex Brush', cursive;
-            color: #8c7365;
+            color: #3b1e08;
             font-size: 3.8em;
-            margin: 0 0 10px 0;
+            line-height: 1;
+            margin-bottom: 5px;
             font-weight: normal;
-        }
-
-        h2 {
-            font-family: 'Alex Brush', cursive;
-            color: #8c7365;
-            font-size: 2.8em;
-            margin: 0 0 15px 0;
-            font-weight: normal;
-        }
-
-        p {
-            font-size: 1.2em;
-            line-height: 1.7;
-            letter-spacing: 0.02em;
+            text-shadow: 0 1px 2px rgba(255,255,255,0.6);
         }
 
         .subtitle {
-            font-style: italic;
-            color: #7a6c63;
-            margin-bottom: 30px;
+            font-size: 0.72em;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            color: #5c3c26;
+            margin-bottom: 25px;
+            font-weight: 500;
         }
 
-        /* Блок с информацией о мероприятии */
-        .event-details {
-            margin: 30px 0;
-            padding: 25px 20px;
-            background: #faf7f5;
-            border-radius: 12px;
-            border-top: 1px solid #e8dfd8;
-            border-bottom: 1px solid #e8dfd8;
+        /* Блок с ЗАГСом и Рестораном */
+        .details-grid {
+            display: grid;
+            grid-template-columns: 1fr 1px 1fr;
+            align-items: center;
+            gap: 10px;
         }
 
-        .event-details p {
-            margin: 10px 0;
-            font-size: 1.15em;
-        }
-
-        .highlight {
-            font-weight: 600;
-            color: #6b5548;
-            letter-spacing: 0.05em;
-        }
-
-        /* Кнопка */
-        .btn {
-            background-color: #8c7365;
-            color: #ffffff;
-            border: none;
-            padding: 14px 36px;
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1.15em;
+        .details-col h3 {
+            font-size: 0.78em;
             letter-spacing: 0.08em;
             text-transform: uppercase;
-            border-radius: 4px;
+            color: #3b1e08;
+            margin-bottom: 6px;
+            font-weight: 600;
+        }
+
+        .details-col p {
+            font-size: 0.9em;
+            color: #4a2e1b;
+            line-height: 1.35;
+            font-weight: 400;
+        }
+
+        .divider {
+            background-color: #4a2e1b;
+            height: 40px;
+            width: 100%;
+            opacity: 0.6;
+        }
+
+        /* Кнопка и интерактивная форма RSVP */
+        .actions-section {
+            margin-top: auto;
+            padding-top: 20px;
+        }
+
+        .btn {
+            background-color: #5c351b;
+            color: #ffffff;
+            border: none;
+            padding: 14px 28px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.82em;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            border-radius: 25px;
             cursor: pointer;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
             transition: all 0.3s ease;
-            margin-top: 10px;
         }
 
         .btn:hover {
-            background-color: #6b5548;
-            box-shadow: 0 4px 12px rgba(107, 85, 72, 0.2);
+            background-color: #3b1e08;
         }
 
-        /* Форма RSVP */
         #rsvp-section {
             display: none;
-            margin-top: 35px;
-            padding-top: 30px;
-            border-top: 1px solid #e8dfd8;
-            animation: fadeIn 0.6s ease-in-out forwards;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(8px); }
-            to { opacity: 1; transform: translateY(0); }
+            margin-top: 15px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
         }
 
         .form-group {
-            margin-bottom: 22px;
+            margin-bottom: 15px;
             text-align: left;
         }
 
         label {
             display: block;
-            margin-bottom: 8px;
-            font-size: 1.05em;
-            color: #5a4f47;
+            font-size: 0.8em;
+            margin-bottom: 6px;
+            color: #3b1e08;
+            font-weight: 600;
         }
 
         input[type="text"] {
             width: 100%;
-            padding: 12px 15px;
-            border: 1px solid #d7ccc4;
+            padding: 10px;
+            border: 1px solid #c9bda8;
             border-radius: 6px;
-            font-size: 1.05em;
-            font-family: 'Cormorant Garamond', serif;
-            background-color: #faf7f5;
-            color: #4a403a;
+            background: #fff;
             outline: none;
-            transition: border-color 0.2s;
-        }
-
-        input[type="text"]:focus {
-            border-color: #8c7365;
-            background-color: #ffffff;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.9em;
         }
 
         .radio-group {
             display: flex;
             flex-direction: column;
-            gap: 10px;
-            margin-top: 8px;
+            gap: 8px;
+            font-size: 0.85em;
         }
 
         .radio-option {
@@ -178,76 +168,78 @@
             align-items: center;
             gap: 8px;
             cursor: pointer;
-            font-size: 1.05em;
         }
 
         input[type="radio"] {
-            accent-color: #8c7365;
+            accent-color: #5c351b;
         }
 
         #confirmation-message {
             display: none;
-            margin-top: 20px;
-            color: #5b7052;
+            color: #2e5a1e;
             font-weight: 600;
-            font-size: 1.15em;
+            font-size: 0.9em;
         }
     </style>
 </head>
 <body>
 
     <div class="card">
-        <!-- Текст приглашения -->
-        <div id="invitation-text">
-            <h1>Приглашение на Свадьбу</h1>
-            <p class="subtitle">Дорогие и близкие! Мы будем счастливы разделить с вами этот день!</p>
+        <!-- Текст поверх вашей фотографии -->
+        <div class="header-section">
+            <h1 class="title-wedding">Wedding</h1>
+            <p class="subtitle">Приглашаем вас на нашу свадьбу</p>
             
-            <div class="event-details">
-                <p>📅 <span class="highlight">29 ЯНВАРЯ 2027 ГОДА</span></p>
-                <p>💍 <span class="highlight">15:00</span> — Торжественная регистрация в ЗАГСе<br>
-                <small style="color: #7a6c63;">(ул. Владимирская, д. 23)</small></p>
-                <p>🎉 <span class="highlight">17:00</span> — Праздничный банкет<br>
-                <small style="color: #7a6c63;">(ул. Кольцова, д. 3)</small></p>
+            <div class="details-grid">
+                <div class="details-col">
+                    <h3>Роспись в ЗАГСе</h3>
+                    <p><b>29.01.2027</b><br>15:00<br><small>ул. Владимирская, 23</small></p>
+                </div>
+                <div class="divider"></div>
+                <div class="details-col">
+                    <h3>Ресторан</h3>
+                    <p><b>"Апельсинка"</b><br>17:00<br><small>ул. Кольцова, 3</small></p>
+                </div>
             </div>
-
-            <button class="btn" type="button" onclick="showRSVP()">Подтвердить присутствие</button>
         </div>
 
-        <!-- Форма ответа -->
-        <div id="rsvp-section">
-            <h2>Ваш ответ</h2>
-            <form id="rsvp-form" action="https://formspree.io/f/xeaqegav" method="POST" onsubmit="submitForm(event)">
-                <div class="form-group">
-                    <label for="guest-name">Ваше имя и фамилия:</label>
-                    <input type="text" id="guest-name" name="Имя гостя" placeholder="Иван Иванов" required>
-                </div>
+        <!-- Кнопка с выбором: придут или нет -->
+        <div class="actions-section">
+            <button class="btn" id="open-btn" type="button" onclick="showRSVP()">Подтвердить присутствие</button>
 
-                <div class="form-group">
-                    <label>Планируете ли присутствовать?</label>
-                    <div class="radio-group">
-                        <label class="radio-option">
-                            <input type="radio" name="Присутствие" value="Да, с удовольствием" required> С удовольствием приду
-                        </label>
-                        <label class="radio-option">
-                            <input type="radio" name="Присутствие" value="К сожалению, не смогу"> К сожалению, не смогу быть
-                        </label>
+            <div id="rsvp-section">
+                <form id="rsvp-form" action="https://formspree.io/f/xeaqegav" method="POST" onsubmit="submitForm(event)">
+                    <div class="form-group">
+                        <label for="guest-name">ВАШЕ ИМЯ И ФАМИЛИЯ:</label>
+                        <input type="text" id="guest-name" name="Имя гостя" placeholder="Иван Иванов" required>
                     </div>
-                </div>
 
-                <button type="submit" class="btn">Отправить</button>
-            </form>
-            
-            <div id="confirmation-message">
-                Спасибо! Ваш ответ успешно получен.
+                    <div class="form-group">
+                        <label>СМОЖЕТЕ ЛИ ПРИДТИ?</label>
+                        <div class="radio-group">
+                            <label class="radio-option">
+                                <input type="radio" name="Присутствие" value="Да, с удовольствием" required> С удовольствием приду
+                            </label>
+                            <label class="radio-option">
+                                <input type="radio" name="Присутствие" value="К сожалению, не смогу"> К сожалению, не смогу
+                            </label>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn" style="width: 100%;">Отправить</button>
+                </form>
+                
+                <div id="confirmation-message">
+                    Спасибо! Ваш ответ успешно получен.
+                </div>
             </div>
         </div>
     </div>
 
     <script>
         function showRSVP() {
-            const rsvpSection = document.getElementById('rsvp-section');
-            rsvpSection.style.display = 'block';
-            rsvpSection.scrollIntoView({ behavior: 'smooth' });
+            document.getElementById('open-btn').style.display = 'none';
+            document.getElementById('rsvp-section').style.display = 'block';
         }
 
         function submitForm(event) {
@@ -264,10 +256,10 @@
                     document.getElementById('rsvp-form').style.display = 'none';
                     document.getElementById('confirmation-message').style.display = 'block';
                 } else {
-                    alert('Ошибка при отправке. Попробуйте ещё раз.');
+                    alert('Ошибка отправки. Попробуйте еще раз.');
                 }
             }).catch(() => {
-                alert('Ошибка при отправке. Попробуйте ещё раз.');
+                alert('Ошибка отправки. Попробуйте еще раз.');
             });
         }
     </script>
