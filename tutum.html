@@ -1,0 +1,273 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Приглашение на свадьбу</title>
+    <!-- Подключение шрифтов -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: #4a2e1b;
+            background-color: #d8cebe;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px 10px;
+        }
+
+        /* Карточка с вашей картинкой в качестве фона */
+        .card {
+            background: url('invitation_bg.jpg') no-repeat center bottom / cover;
+            max-width: 450px;
+            width: 100%;
+            min-height: 800px;
+            padding: 40px 20px 30px;
+            border-radius: 16px;
+            text-align: center;
+            position: relative;
+            box-shadow: 0 10px 35px rgba(0, 0, 0, 0.15);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        /* Верхняя часть с текстом приглашения */
+        .header-section {
+            background: rgba(255, 255, 255, 0.25);
+            backdrop-filter: blur(2px);
+            padding: 20px 10px;
+            border-radius: 12px;
+        }
+
+        .title-wedding {
+            font-family: 'Alex Brush', cursive;
+            color: #3b1e08;
+            font-size: 3.8em;
+            line-height: 1;
+            margin-bottom: 5px;
+            font-weight: normal;
+        }
+
+        .subtitle {
+            font-size: 0.72em;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            color: #5c3c26;
+            margin-bottom: 25px;
+            font-weight: 500;
+        }
+
+        /* Блок с деталями (ЗАГС и Ресторан) */
+        .details-grid {
+            display: grid;
+            grid-template-columns: 1fr 1px 1fr;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .details-col h3 {
+            font-size: 0.78em;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: #3b1e08;
+            margin-bottom: 6px;
+            font-weight: 600;
+        }
+
+        .details-col p {
+            font-size: 0.9em;
+            color: #4a2e1b;
+            line-height: 1.35;
+            font-weight: 400;
+        }
+
+        .divider {
+            background-color: #4a2e1b;
+            height: 40px;
+            width: 100%;
+            opacity: 0.6;
+        }
+
+        /* Кнопка подписи */
+        .actions-section {
+            margin-top: auto;
+            padding-top: 20px;
+        }
+
+        .btn {
+            background-color: #5c351b;
+            color: #ffffff;
+            border: none;
+            padding: 14px 28px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.82em;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            border-radius: 25px;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            transition: all 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #3b1e08;
+            transform: translateY(-1px);
+        }
+
+        /* Скрываемая форма ответа */
+        #rsvp-section {
+            display: none;
+            margin-top: 15px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.92);
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+            text-align: left;
+        }
+
+        label {
+            display: block;
+            font-size: 0.8em;
+            margin-bottom: 6px;
+            color: #3b1e08;
+            font-weight: 600;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #c9bda8;
+            border-radius: 6px;
+            background: #fff;
+            outline: none;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.9em;
+        }
+
+        .radio-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            font-size: 0.85em;
+        }
+
+        .radio-option {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+        }
+
+        input[type="radio"] {
+            accent-color: #5c351b;
+        }
+
+        #confirmation-message {
+            display: none;
+            color: #2e5a1e;
+            font-weight: 600;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card">
+        <!-- Верхняя текстовая часть поверх мятой бумаги -->
+        <div class="header-section">
+            <h1 class="title-wedding">Wedding</h1>
+            <p class="subtitle">Приглашаем вас на нашу свадьбу</p>
+            
+            <div class="details-grid">
+                <div class="details-col">
+                    <h3>Роспись в ЗАГСе</h3>
+                    <p><b>29.01.2027</b><br>15:00<br><small>ул. Владимирская, 23</small></p>
+                </div>
+                <div class="divider"></div>
+                <div class="details-col">
+                    <h3>Ресторан</h3>
+                    <p><b>"Апельсинка"</b><br>17:00<br><small>ул. Кольцова, 3</small></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Нижняя часть с кнопкой и формой ответа -->
+        <div class="actions-section">
+            <button class="btn" id="open-btn" type="button" onclick="showRSVP()">Подтвердить присутствие</button>
+
+            <div id="rsvp-section">
+                <form id="rsvp-form" action="https://formspree.io/f/xeaqegav" method="POST" onsubmit="submitForm(event)">
+                    <div class="form-group">
+                        <label for="guest-name">ВАШЕ ИМЯ И ФАМИЛИЯ:</label>
+                        <input type="text" id="guest-name" name="Имя гостя" placeholder="Иван Иванов" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>СМОЖЕТЕ ЛИ ПРИДТИ?</label>
+                        <div class="radio-group">
+                            <label class="radio-option">
+                                <input type="radio" name="Присутствие" value="Да, с удовольствием" required> С удовольствием приду
+                            </label>
+                            <label class="radio-option">
+                                <input type="radio" name="Присутствие" value="К сожалению, не смогу"> К сожалению, не смогу
+                            </label>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn" style="width: 100%;">Отправить</button>
+                </form>
+                
+                <div id="confirmation-message">
+                    Спасибо! Ваш ответ успешно получен.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showRSVP() {
+            document.getElementById('open-btn').style.display = 'none';
+            document.getElementById('rsvp-section').style.display = 'block';
+        }
+
+        function submitForm(event) {
+            event.preventDefault();
+            const form = event.target;
+            const data = new FormData(form);
+
+            fetch(form.action, {
+                method: form.method,
+                body: data,
+                headers: { 'Accept': 'application/json' }
+            }).then(response => {
+                if (response.ok) {
+                    document.getElementById('rsvp-form').style.display = 'none';
+                    document.getElementById('confirmation-message').style.display = 'block';
+                } else {
+                    alert('Ошибка отправки. Попробуйте еще раз.');
+                }
+            }).catch(() => {
+                alert('Ошибка отправки. Попробуйте еще раз.');
+            });
+        }
+    </script>
+
+</body>
+</html>
+
