@@ -18,7 +18,6 @@
         body {
             font-family: 'Montserrat', sans-serif;
             color: #6e5d4f;
-            /* Нежный пастельный кремовый фон страницы */
             background-color: #f9f6f0;
             display: flex;
             justify-content: center;
@@ -27,7 +26,7 @@
             padding: 10px;
         }
 
-        /* Карточка с вашей картинкой в качестве фона */
+        /* Основная карточка с вашим фоном без надписей */
         .card {
             background: url('invitation_bg.jpg') no-repeat center top / cover;
             max-width: 450px;
@@ -43,7 +42,7 @@
             justify-content: space-between;
         }
 
-        /* Нежная полупрозрачная подложка сверху для лёгкости */
+        /* Верхняя текстовая карточка */
         .header-section {
             background: rgba(255, 255, 255, 0.45);
             backdrop-filter: blur(3px);
@@ -70,7 +69,7 @@
             font-weight: 500;
         }
 
-        /* Блок с информацией о ЗАГСе и ресторане */
+        /* Информация о ЗАГСе и ресторане */
         .details-grid {
             display: grid;
             grid-template-columns: 1fr 1px 1fr;
@@ -101,7 +100,29 @@
             opacity: 0.7;
         }
 
-        /* Нижний блок и кнопка */
+        /* Блок с именами ЛЕРА и ЖЕНЯ по бокам от сердечка */
+        .names-overlay {
+            position: absolute;
+            top: 425px; /* Высота расположения надписей над головами */
+            left: 50%;
+            transform: translateX(-50%);
+            width: 75%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            pointer-events: none;
+        }
+
+        .names-overlay span {
+            font-size: 0.9em;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: #5c4333;
+            font-weight: 500;
+            text-shadow: 0 1px 2px rgba(255, 255, 255, 0.8);
+        }
+
+        /* Кнопка и интерактивный блок ответа */
         .actions-section {
             margin-top: auto;
             padding-top: 20px;
@@ -126,7 +147,6 @@
             background-color: #8a7565;
         }
 
-        /* Форма ответа в нежных тонах */
         #rsvp-section {
             display: none;
             margin-top: 15px;
@@ -163,10 +183,6 @@
             color: #6e5d4f;
         }
 
-        input[type="text"]:focus {
-            border-color: #a39081;
-        }
-
         .radio-group {
             display: flex;
             flex-direction: column;
@@ -197,7 +213,7 @@
 <body>
 
     <div class="card">
-        <!-- Текстовый блок поверх вашего изображения -->
+        <!-- Текстовый блок сверху -->
         <div class="header-section">
             <h1 class="title-wedding">Wedding</h1>
             <p class="subtitle">Приглашаем вас на нашу свадьбу</p>
@@ -215,7 +231,13 @@
             </div>
         </div>
 
-        <!-- Кнопка и интерактивный блок ответа -->
+        <!-- Имена над фото детей -->
+        <div class="names-overlay">
+            <span>ЛЕРА</span>
+            <span>ЖЕНЯ</span>
+        </div>
+
+        <!-- Форма ответа и кнопка -->
         <div class="actions-section">
             <button class="btn" id="open-btn" type="button" onclick="showRSVP()">Подтвердить присутствие</button>
 
