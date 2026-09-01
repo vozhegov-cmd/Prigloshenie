@@ -17,8 +17,9 @@
 
         body {
             font-family: 'Montserrat', sans-serif;
-            color: #4a2e1b;
-            background-color: #d8cebe;
+            color: #6e5d4f;
+            /* Нежный пастельный кремовый фон страницы */
+            background-color: #f9f6f0;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -26,48 +27,50 @@
             padding: 10px;
         }
 
-        /* Карточка использует вашу сохраненную картинку invitation_bg.jpg как фон */
+        /* Карточка с вашей картинкой в качестве фона */
         .card {
             background: url('invitation_bg.jpg') no-repeat center top / cover;
             max-width: 450px;
             width: 100%;
             min-height: 820px;
-            padding: 35px 20px 25px;
-            border-radius: 16px;
+            padding: 30px 20px 25px;
+            border-radius: 20px;
             text-align: center;
             position: relative;
-            box-shadow: 0 10px 35px rgba(0, 0, 0, 0.15);
+            box-shadow: 0 10px 30px rgba(110, 93, 79, 0.08);
             display: flex;
             flex-direction: column;
             justify-content: space-between;
         }
 
-        /* Верхняя часть — полностью прозрачная */
+        /* Нежная полупрозрачная подложка сверху для лёгкости */
         .header-section {
-            background: transparent;
-            padding-top: 10px;
+            background: rgba(255, 255, 255, 0.45);
+            backdrop-filter: blur(3px);
+            padding: 20px 15px;
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.6);
         }
 
         .title-wedding {
             font-family: 'Alex Brush', cursive;
-            color: #3b1e08;
-            font-size: 3.8em;
+            color: #8a7565;
+            font-size: 3.6em;
             line-height: 1;
-            margin-bottom: 5px;
+            margin-bottom: 6px;
             font-weight: normal;
-            text-shadow: 0 1px 2px rgba(255,255,255,0.6);
         }
 
         .subtitle {
-            font-size: 0.72em;
-            letter-spacing: 0.16em;
+            font-size: 0.7em;
+            letter-spacing: 0.18em;
             text-transform: uppercase;
-            color: #5c3c26;
-            margin-bottom: 25px;
+            color: #9c8a7b;
+            margin-bottom: 22px;
             font-weight: 500;
         }
 
-        /* Блок с ЗАГСом и Рестораном */
+        /* Блок с информацией о ЗАГСе и ресторане */
         .details-grid {
             display: grid;
             grid-template-columns: 1fr 1px 1fr;
@@ -76,60 +79,62 @@
         }
 
         .details-col h3 {
-            font-size: 0.78em;
+            font-size: 0.75em;
             letter-spacing: 0.08em;
             text-transform: uppercase;
-            color: #3b1e08;
-            margin-bottom: 6px;
+            color: #7a6859;
+            margin-bottom: 5px;
             font-weight: 600;
         }
 
         .details-col p {
-            font-size: 0.9em;
-            color: #4a2e1b;
-            line-height: 1.35;
+            font-size: 0.88em;
+            color: #6e5d4f;
+            line-height: 1.4;
             font-weight: 400;
         }
 
         .divider {
-            background-color: #4a2e1b;
-            height: 40px;
+            background-color: #c4b5a5;
+            height: 38px;
             width: 100%;
-            opacity: 0.6;
+            opacity: 0.7;
         }
 
-        /* Кнопка и интерактивная форма RSVP */
+        /* Нижний блок и кнопка */
         .actions-section {
             margin-top: auto;
             padding-top: 20px;
         }
 
         .btn {
-            background-color: #5c351b;
+            background-color: #a39081;
             color: #ffffff;
             border: none;
-            padding: 14px 28px;
+            padding: 13px 26px;
             font-family: 'Montserrat', sans-serif;
-            font-size: 0.82em;
+            font-size: 0.8em;
             letter-spacing: 0.12em;
             text-transform: uppercase;
-            border-radius: 25px;
+            border-radius: 20px;
             cursor: pointer;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            box-shadow: 0 4px 15px rgba(163, 144, 129, 0.25);
             transition: all 0.3s ease;
         }
 
         .btn:hover {
-            background-color: #3b1e08;
+            background-color: #8a7565;
         }
 
+        /* Форма ответа в нежных тонах */
         #rsvp-section {
             display: none;
             margin-top: 15px;
             padding: 20px;
-            background: rgba(255, 255, 255, 0.95);
-            border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            background: rgba(253, 251, 248, 0.96);
+            border-radius: 15px;
+            border: 1px solid #f0e8df;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
         }
 
         .form-group {
@@ -139,21 +144,27 @@
 
         label {
             display: block;
-            font-size: 0.8em;
+            font-size: 0.78em;
             margin-bottom: 6px;
-            color: #3b1e08;
+            color: #7a6859;
             font-weight: 600;
+            letter-spacing: 0.05em;
         }
 
         input[type="text"] {
             width: 100%;
             padding: 10px;
-            border: 1px solid #c9bda8;
-            border-radius: 6px;
-            background: #fff;
+            border: 1px solid #dcd2c7;
+            border-radius: 8px;
+            background: #ffffff;
             outline: none;
             font-family: 'Montserrat', sans-serif;
-            font-size: 0.9em;
+            font-size: 0.88em;
+            color: #6e5d4f;
+        }
+
+        input[type="text"]:focus {
+            border-color: #a39081;
         }
 
         .radio-group {
@@ -161,6 +172,7 @@
             flex-direction: column;
             gap: 8px;
             font-size: 0.85em;
+            color: #6e5d4f;
         }
 
         .radio-option {
@@ -171,21 +183,21 @@
         }
 
         input[type="radio"] {
-            accent-color: #5c351b;
+            accent-color: #a39081;
         }
 
         #confirmation-message {
             display: none;
-            color: #2e5a1e;
-            font-weight: 600;
-            font-size: 0.9em;
+            color: #6b8260;
+            font-weight: 500;
+            font-size: 0.88em;
         }
     </style>
 </head>
 <body>
 
     <div class="card">
-        <!-- Текст поверх вашей фотографии -->
+        <!-- Текстовый блок поверх вашего изображения -->
         <div class="header-section">
             <h1 class="title-wedding">Wedding</h1>
             <p class="subtitle">Приглашаем вас на нашу свадьбу</p>
@@ -203,7 +215,7 @@
             </div>
         </div>
 
-        <!-- Кнопка с выбором: придут или нет -->
+        <!-- Кнопка и интерактивный блок ответа -->
         <div class="actions-section">
             <button class="btn" id="open-btn" type="button" onclick="showRSVP()">Подтвердить присутствие</button>
 
@@ -256,10 +268,10 @@
                     document.getElementById('rsvp-form').style.display = 'none';
                     document.getElementById('confirmation-message').style.display = 'block';
                 } else {
-                    alert('Ошибка отправки. Попробуйте еще раз.');
+                    alert('Ошибка отправки. Попробуйте ещё раз.');
                 }
             }).catch(() => {
-                alert('Ошибка отправки. Попробуйте еще раз.');
+                alert('Ошибка отправки. Попробуйте ещё раз.');
             });
         }
     </script>
